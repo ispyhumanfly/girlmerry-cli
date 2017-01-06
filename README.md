@@ -24,6 +24,35 @@ Here's a query that retrieves nearly every single product on www.girlmerry.com.
 
     girlmerry-cli "clubwear-dresses" "swimwear" "jumpsuits.html?product_list_limit=360&p=1" "jumpsuits.html?product_list_limit=360&p=2" "jumpsuits.html?product_list_limit=360&p=3" "jumpsuits.html?product_list_limit=360&p=4" "top-10"
 
+An example of what the console output could look like...
+
+    RESULT: 50
+
+        NAME: Solid Two-Ways Wear Zipper Sport Jumpsuit
+        IMAGE: data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+        PRICE: $4.52
+        SIZES: S,M,L
+
+    RESULT: 51
+
+        NAME: Winter New Lace Sexy See Through Jumpsuit
+        IMAGE: data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+        PRICE: $7.32
+        SIZES: S,M,L
+
+    RESULT: 52
+
+        NAME: Black Rivet Thick High Quality Fashion Jumpsuit
+        IMAGE: data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+        PRICE: $8.40
+        SIZES: S,M,L
+
+    RESULT: 53
+
+        NAME: Winter New Off Shoulder Velvet Thick Jumpsuit
+        IMAGE: data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+        PRICE: $8.40
+        SIZES: S,M,L
 
 # License
 MIT
