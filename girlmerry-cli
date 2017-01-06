@@ -64,7 +64,6 @@ for my $page (@ARGV) {
                         $item->at("div[class=product details product-item-details] > script")->text
                       )
                     {
-
                         if (m/.*jsonSwatchConfig/g) {
 
                             s/^\s+|\s+$//g;
@@ -82,7 +81,6 @@ for my $page (@ARGV) {
                                     for my $key (
                                         keys %{ $jsonSwatchConfig->{$id}->{$code} } )
                                     {
-
                                         next if $key ne 'label';
 
                                         push @sizes,
