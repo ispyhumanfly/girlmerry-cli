@@ -10,32 +10,30 @@ no if $] >= 5.018, warnings => "experimental::lexical_subs";
 use Mojo::Asset::Memory;
 use Mojo::UserAgent;
 use Mojo::IOLoop;
-use Mojo::Util
-  qw/ b64_encode url_escape url_unescape camelize decamelize quote dumper /;
+use Mojo::Util qw/ camelize decamelize quote dumper /;
 use Mojo::JSON qw/ decode_json encode_json /;
 use Try::Tiny;
 
 my $client  = Mojo::UserAgent->new;
 my $results = 0;
 
-for (@ARGV) {
+for my $page (@ARGV) {
 
-    my $mem = Mojo::Asset::Memory->new;
-    $mem->max_memory_size(2000000);
+    my $cache = Mojo::Asset::Memory->new;
+    $cache->max_memory_size(2000000);
 
     $client->get(
-        "https://www.girlmerry.com/$ARGV[$results]" => sub {
+        "https://www.girlmerry.com/$page" => sub {
 
-            my ( $client, $girlmerry ) = @_;
+            my ( $client, $server ) = @_;
 
             try {
 
                 for my $item (
-                    $girlmerry->res->dom->find(
+                    $server->res->dom->find(
                         "li[class=item product product-item]")->each
                   )
                 {
-
                     $results++;
 
                     # Result

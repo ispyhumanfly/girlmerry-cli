@@ -1,9 +1,10 @@
 # girlmerry-cli
-A command-line driven product aggregator for the www.girlmerry.com online fashion clothing wholesale store.
+A command-line interface to the www.girlmerry.com online fashion clothing wholesale store.
 
 # Synopsis
-Put simply, the girlmerry-cli is a non-blocking and multi-threaded product aggregator. It renders real-time and easy to understand result lists to your console.
-Alternatively you may export your result lists to common file formats such as JSON, XML and CSV.
+The girlmerry-cli is a non-blocking and multi-threaded product page aggregator. Its primary purpose
+is to render near realtime and easy to understand results to the console. Alternatively, you may export your result
+lists to common file formats such as JSON, XML and CSV.
 
 ## Usage
 
@@ -14,6 +15,10 @@ Grab 120 results from a single product page.
 Retrieve results from a combination of product pages.
 
     girlmerry-cli "sexy-lingerie" "jumpsuits.html" "swimsuits"
+
+Native www.girlmerry.com query strings can be used.
+
+    ./girlmerry-cli "jumpsuits.html?product_list_limit=360&p=1"
 
 # License
 MIT
