@@ -18,7 +18,12 @@ Retrieve results from a combination of product pages.
 
 Native www.girlmerry.com query strings can be used.
 
-    ./girlmerry-cli "jumpsuits.html?product_list_limit=360&p=1"
+    girlmerry-cli "jumpsuits.html?product_list_limit=360&p=1"
+
+Here's a query that retrieves nearly every single product on www.girlmerry.com.
+
+    girlmerry-cli "clubwear-dresses" "swimwear" "jumpsuits.html?product_list_limit=360&p=1" "jumpsuits.html?product_list_limit=360&p=2" "jumpsuits.html?product_list_limit=360&p=3" "jumpsuits.html?product_list_limit=360&p=4" "top-10"
+
 
 # License
 MIT
