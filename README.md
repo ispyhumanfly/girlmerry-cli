@@ -1,5 +1,5 @@
 # girlmerry-cli
-A command-line driven product page aggregator for the www.girlmerry.com website. Which can alternatively export results to JSON, XML and CSV file formats.
+A command-line driven product page aggregator for the www.girlmerry.com website. You may alternatively export results to JSON, XML and CSV file formats.
 
 # Synopsis
 Put simply, the girlmerry-cli is a fast product page aggregator making it possible to not only export to common formats, but also,
