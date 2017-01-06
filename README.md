@@ -1,5 +1,5 @@
 # girlmerry-cli
-A command-line driven product product aggregator for www.girlmerry.com.
+A command-line driven product aggregator for the www.girlmerry.com online fashion clothing wholesale store.
 
 # Synopsis
 Put simply, the girlmerry-cli is a non-blocking and multi-threaded product aggregator. It renders real-time and easy to understand result lists to your console.
