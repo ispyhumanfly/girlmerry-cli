@@ -34,7 +34,7 @@ for my $page (@ARGV) {
 
                 for my $item (
                     $server->res->dom->find(
-                        "li[class=item product product-item]")->each
+                        "li[class~=item product product-item]")->each
                   )
                 {
                     $results++;
@@ -51,7 +51,7 @@ for my $page (@ARGV) {
                     # Image
 
                     my $image =
-                      $item->at("img[class~=product-image-photo]")->{src};
+                      $item->at("img.product-image-photo")->{'data-src'};
                     say "\tIMAGE: $image";
 
                     # Price
