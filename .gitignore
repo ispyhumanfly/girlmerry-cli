@@ -1,2 +1,5 @@
 *.bak
 *.swp
+*.csv
+node_modules
+*.js
