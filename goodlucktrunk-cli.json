@@ -1,0 +1,36 @@
+{
+    "pages": [
+        {
+            "swimwear": [
+                "swimwear?p=1&product_list_limit=120",
+                "swimwear?p=2&product_list_limit=120",
+                "swimwear?p=3&product_list_limit=120",
+                "swimwear?p=4&product_list_limit=120",
+                "swimwear?p=5&product_list_limit=120",
+                "swimwear?p=6&product_list_limit=120"
+            ]
+        },
+        {
+            "jumpsuits": [
+                "jumpsuits.html?p=1&product_list_limit=360",
+                "jumpsuits.html?p=2&product_list_limit=360",
+                "jumpsuits.html?p=3&product_list_limit=360",
+                "jumpsuits.html?p=4&product_list_limit=360",
+                "jumpsuits.html?p=5&product_list_limit=360",
+                "jumpsuits.html?p=6&product_list_limit=360",
+                "jumpsuits.html?p=8&product_list_limit=360",
+                "jumpsuits.html?p=9&product_list_limit=360",
+                "jumpsuits.html?p=10&product_list_limit=360"
+            ]
+        },
+        {
+            "dresses": [
+                "clubwear-dresses?p=1&product_list_limit=360",
+                "clubwear-dresses?p=2&product_list_limit=360",
+                "clubwear-dresses?p=3&product_list_limit=360",
+                "clubwear-dresses?p=4&product_list_limit=360",
+                "clubwear-dresses?p=5&product_list_limit=360"
+            ]
+        }
+    ]
+}

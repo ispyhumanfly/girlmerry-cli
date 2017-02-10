@@ -1,0 +1,64 @@
+#!/usr/bin/env perl
+
+use 5.018_000;
+use strict;
+use warnings;
+
+no if $] >= 5.018, warnings => "experimental::smartmatch";
+no if $] >= 5.018, warnings => "experimental::lexical_subs";
+
+use Mojo::Asset::Memory;
+use Mojo::UserAgent;
+use Mojo::IOLoop;
+use Mojo::Util qw/ camelize decamelize quote dumper /;
+use Mojo::JSON qw/ decode_json encode_json /;
+use Try::Tiny;
+
+my $cache = Mojo::Asset::Memory->new;
+$cache->max_memory_size(2000000);
+
+my $results = 0;
+
+my $client  = Mojo::UserAgent->new;
+
+$client->get(
+    "http://www.matildajaneclothing.com/PWS/HomeOffice/store/AM/catalog/All-Products,1.aspx/" => sub {
+
+        my ( $client, $server ) = @_;
+
+        try {
+
+            for my $item (
+                $server->res->dom->find(
+                    "div[class=col-xs-12 col-md-4 margin-t-5]")->each
+                )
+            {
+                $results++;
+
+                # Result
+                say "\nRESULT: $results\n";
+
+                # Name
+
+                my $name = $item->at("h4")->text;
+                $name =~ s/^\s+|\s+$//g;
+                say decamelize "\tNAME: $name";
+
+                # Image
+
+                my $image = $item->at("img")->{src};
+                say "\tIMAGE: $image";
+
+                my $url_name = ($name =~ s/ /-/g);
+
+                # Price
+                say "\tPRICE: " . $client->get("http://www.matildajaneclothing.com/Pws/HomeOffice/store/AM/product/$url_name,306,1.aspx")->res->dom->at('div > label[class=prowessdata ecf_pricemodule_PriceValue]')->text;
+
+                # Sizes
+                say "\tSIZES: " . $client->get("http://www.matildajaneclothing.com/Pws/HomeOffice/store/AM/product/$url_name,306,1.aspx")->res->dom->find('div > select[id=ctl00_MainContent_ProductInfo1_ctl00_PurchaseCtrl_ddlSkuValue] > option')->map('text')->join(',');
+            }
+        }
+    }
+);
+
+Mojo::IOLoop->start unless Mojo::IOLoop->is_running;
