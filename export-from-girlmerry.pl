@@ -59,24 +59,15 @@ for my $page (@ARGV) {
                     $price =~ s/^\s+|\s+$//g;
                     say decamelize "\tPRICE: $price";
 
-                    #my @colors;
-
-                   #for my $color (
-                   #    $server->res->dom->at("div.swatch-option.image")->each )
-                   #{
-                   #    push @colors, $color->{'option-label'};
-                   #}
-
-                    #say "\tCOLORS: " . join ",", sort @colors
-                    #  unless scalar @colors == 0;
+                    # Colors
+                    say "\tCOLORS: " . $item->find("div.swatch-option.image")->map(attr => 'option-label')->join("\n");
 
                     # Sizes
 
                     for (
                         split /\n/,
                         $item->at(
-                            "div.product.details.product-item-details > script")
-                        ->text
+                            "div.product.details.product-item-details > script")->text
                       )
                     {
 

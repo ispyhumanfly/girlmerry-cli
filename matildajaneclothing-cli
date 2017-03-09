@@ -22,7 +22,7 @@ my $results = 0;
 my $client  = Mojo::UserAgent->new;
 
 $client->get(
-    "http://www.matildajaneclothing.com/PWS/HomeOffice/store/AM/catalog/All-Products,1.aspx/" => sub {
+    "http://www.matildajaneclothing.com/Pws/JenKraydich/store/AM/default.aspx" => sub {
 
         my ( $client, $server ) = @_;
 
@@ -46,16 +46,16 @@ $client->get(
 
                 # Image
 
-                my $image = $item->at("img")->{src};
+                my $image = $item->at("img[id=ctl00_MainContent_CategoryInfo1_ctl00_ProductList_ctl00_ProductImage]")->{src};
                 say "\tIMAGE: $image";
 
                 my $url_name = ($name =~ s/ /-/g);
 
                 # Price
-                say "\tPRICE: " . $client->get("http://www.matildajaneclothing.com/Pws/HomeOffice/store/AM/product/$url_name,306,1.aspx")->res->dom->at('div > label[class=prowessdata ecf_pricemodule_PriceValue]')->text;
+                #say "\tPRICE: " . $client->get("http://www.matildajaneclothing.com/Pws/HomeOffice/store/AM/product/$url_name,306,1.aspx")->res->dom->at('a[id=ctl00_MainContent_CategoryInfo1_ctl00_ProductList_ctl00_HyperLink2]')->text;
 
                 # Sizes
-                say "\tSIZES: " . $client->get("http://www.matildajaneclothing.com/Pws/HomeOffice/store/AM/product/$url_name,306,1.aspx")->res->dom->find('div > select[id=ctl00_MainContent_ProductInfo1_ctl00_PurchaseCtrl_ddlSkuValue] > option')->map('text')->join(',');
+                #say "\tSIZES: " . $client->get("http://www.matildajaneclothing.com/Pws/HomeOffice/store/AM/product/$url_name,306,1.aspx")->res->dom->find('div > select[id=ctl00_MainContent_ProductInfo1_ctl00_PurchaseCtrl_ddlSkuValue] > option')->map('text')->join(',');
             }
         }
     }
